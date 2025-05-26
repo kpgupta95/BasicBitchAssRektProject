@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
-  * @file    Examples_LL/GPIO/GPIO_InfiniteLedToggling/Inc/main.h
-  * @author  MCD Application Team
+  * @file    Projekt/include/main.h
+  * @author  Kapil Gupta
   * @brief   Header for main.c module
   ******************************************************************************
   * @attention
@@ -26,24 +26,23 @@
 #include "stm32f4xx_ll_system.h"
 #include "stm32f4xx_ll_utils.h"
 #include "stm32f4xx_ll_gpio.h"
+#include "stm32f4xx_hal.h"
 #if defined(USE_FULL_ASSERT)
 #include "stm32_assert.h"
 #endif /* USE_FULL_ASSERT */
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
-/**
-  * @brief LED2 
-  */
-
+#define Led_red_Pin GPIO_PIN_14
+#define Led_red_GPIO_Port GPIOD
 #define LED2_PIN                           LL_GPIO_PIN_5
 #define LED2_GPIO_PORT                     GPIOA
 #define LED2_GPIO_CLK_ENABLE()     
 
-#define Led_red_Pin GPIO_PIN_14
-#define Led_red_GPIO_Port GPIOD        LL_AHB1_GRP1_EnableClock(LL_AHB1_GRP1_PERIPH_GPIOA)
-  
 /* Exported macro ------------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */
+/* Exported functions prototypes ---------------------------------------------*/
+void Error_Handler(void);
+
+
 
 #endif /* __MAIN_H */

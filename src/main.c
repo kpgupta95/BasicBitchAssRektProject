@@ -94,22 +94,21 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   // Init lcd using one of the stm32HAL i2c typedefs
-  if (ssd1306_Init(&hi2c1) != 0) {
-    Error_Handler();
-  }
+  ssd1306_Init();
   HAL_Delay(1000);
 
   ssd1306_Fill(Black);
-  ssd1306_UpdateScreen(&hi2c1);
+  ssd1306_UpdateScreen();
 
   HAL_Delay(1000);
 
   // Write data to local screenbuffer
   ssd1306_SetCursor(0, 0);
-  ssd1306_WriteString("ssd1306", Font_11x18, White);
+  SSD1306_Font_t font = Font_11x18;
+  ssd1306_WriteString("ssd1306", font, White);
 
   ssd1306_SetCursor(0, 36);
-  ssd1306_WriteString("4ilo", Font_11x18, White);
+  ssd1306_WriteString("4ilo", font, White);
 
   // Draw rectangle on screen
   for (uint8_t i=0; i<28; i++) {
@@ -119,7 +118,7 @@ int main(void)
   }
 
   // Copy all data from local screenbuffer to the screen
-  ssd1306_UpdateScreen(&hi2c1);
+  ssd1306_UpdateScreen();
 
   /* USER CODE END 2 */
 
